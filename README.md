@@ -17,18 +17,18 @@ SlackSFDClib is a set of helper types and functions to build quick Slack Integra
 ```
 @restResource(urlMapping='/slackbot/*')
 global class SlackBot {
-    static final string SLACK_TOKEN='PASTE_TOKEN_HERE';
+	static final string SLACK_TOKEN='PASTE_TOKEN_HERE';
 
-    @httpPost
-    global static void doPost() {
-        SlackContext ctx = new SlackContext(RestContext.request);
-				ctx.checkToken(SLACK_TOKEN);
-        ctx.response.response_type='ephemeral';
+	@httpPost
+	global static void doPost() {
+		SlackContext ctx = new SlackContext(RestContext.request);				
+		ctx.checkToken(SLACK_TOKEN);
+		ctx.response.response_type='ephemeral';
 
-				// DO WORK HERE
-				ctx.response.text = 'Thanks for calling Salesforce!'
+		// DO WORK HERE
+		ctx.response.text = 'Thanks for calling Salesforce!'
 
-        ctx.setResponse(RestContext.response);
-    }
+		ctx.setResponse(RestContext.response);
+	}
 }
 ```
