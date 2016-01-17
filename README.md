@@ -4,7 +4,7 @@ SlackSFDClib is a set of helper types and functions to build quick Slack Integra
 
 ## Getting Started
 
-1. Install SlackSFDClib in your organization as an unmanaged package.
+1. Install SlackSFDClib in your organization as an unmanaged package from https://login.salesforce.com/packaging/installPackage.apexp?p0=04t36000000DZnG
 2. Create a new class using the sample structure below.
 3. Add functionality to your Slackbot class.
 4. Create a force.com public site (or using an existing one) and then add your Slackbot class to the site guest user's enabled Apex Classes.
@@ -26,9 +26,11 @@ global class SlackBot {
 		ctx.response.response_type='ephemeral';
 
 		// DO WORK HERE
-		ctx.response.text = 'Thanks for calling Salesforce!'
+		ctx.response.text = 'Thanks for calling Salesforce!';
 
 		ctx.setResponse(RestContext.response);
 	}
 }
 ```
+
+To make this class testable, you may want to pull your logic into a method that returns a SlackContext object.
